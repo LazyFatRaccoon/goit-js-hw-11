@@ -1,0 +1,68 @@
+@import '../common';
+
+
+.gallery{
+
+    
+        
+
+    
+    padding: 20px 20px;
+    display:flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap:wrap;
+
+
+
+
+    .photo-card{
+
+        position: relative;
+
+        border-radius: 2px;
+
+        
+        
+            width: var(--photoSmallWidth);
+            height: var(--photoSmallHeight);
+            
+        
+        @media screen and (min-width: 1200px){
+            width: var(--photoLargeWidth);
+            height: var(--photoLargeHeight);
+
+        }
+        img{
+            background-repeat: no-repeat;
+            display: block;
+            width: 100%;
+            height:100%;
+
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .info {
+            display: flex;
+            position: absolute;
+            background-color: var(--search-bg-clr);
+            width: 100%;
+            justify-content:space-around;
+            align-items: center;
+            bottom: 0;
+            
+
+            p {
+                margin: 0;
+               text-align: center;
+               
+            }
+        }
+    }
+    
+
+    
+}
+

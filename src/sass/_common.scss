@@ -1,0 +1,35 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+html {
+    --bg-clr: #5a2989;
+    --search-bg-clr: #ab91c4;
+    --white: #fff;
+    --text-clr: #0f0914;
+    --btn-hvr-clg: #dcb6ff;
+
+    --photoSmallWidth:300px;
+    --photoSmallHeight:200px;
+    --photoLargeWidth:400px;
+    --photoLargeHeight:300px;
+}
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  body{
+    background: var(--white);
+    color: var(--text-clr);
+    margin-bottom: 75px; 
+  }
+
+  .error400 {
+    text-align: center;
+    font-size: 40px;
+    color: grey;
+    
+  }

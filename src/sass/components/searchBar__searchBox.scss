@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import '../common';
+
+
+
+.search_box_wrapper {
+  max-width: 500px;
+}
+
+.search_box_wrapper .search_box_item{
+    position: relative;
+    height: 50px;
+    //width: 500px;
+    //max-width: 100%;
+  }
+  
+   .search_box_wrapper .search_box_item .search_box{
+    height: 50px;
+  }
+  
+  .search_box_wrapper .search_box_item .input_search{
+    background: var(--search-bg-clr);
+    border: 0;
+    border-radius: 25px;
+    color: #fff;
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  .search_box_wrapper .search_box_item .icon{
+    position: absolute;
+    top: 7px;
+    color: var(--white);
+    font-size: 18px; 
+    display: flex;
+    width: 40px;
+  }
+  
+  .search_box_wrapper .search_box_item button{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    border-radius: 25px;
+    border: 0;
+    display: block;
+    background: var(--white);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+  }
+  
+  .search_box_wrapper .search_box_item button:hover{
+    background: green;
+  }
+  
+
+  .search_box_wrapper .search_box_item .input_search{
+    padding: 15px 150px 15px 75px;
+  }
+  .search_box_wrapper .search_box_item .input_search::placeholder{
+    color: black;
+  }
+  
+  .search_box_wrapper .search_box_item button{
+    right: 0;
+  }
+
+  .search_box_wrapper .search_box_item .icon{
+     left: 20px;
+  }

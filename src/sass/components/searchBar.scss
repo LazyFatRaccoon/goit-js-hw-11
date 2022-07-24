@@ -1,0 +1,15 @@
+@import '../common';
+
+.search-bar {
+    display:flex;
+    align-items: center;
+
+    position:sticky;
+    top:0px;
+    height: 80px;
+    width: 100%;
+    background-color: var(--bg-clr);
+
+    padding: 0 20px;
+    z-index: 1;
+}

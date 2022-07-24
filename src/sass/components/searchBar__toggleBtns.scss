@@ -1,0 +1,13 @@
+
+.btn-group {
+    margin-left:auto;
+
+}
+.btn {
+    background-color: gray;
+    height: 40px;
+}
+.btn-check:checked + .btn{
+    background-color: green;
+}
+
