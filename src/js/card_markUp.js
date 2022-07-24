@@ -32,6 +32,7 @@ function cardMarkUp(photo) {
             
         </div>`}
 
+        
 
         function convertToInternationalCurrencySystem (labelValue) {
 
