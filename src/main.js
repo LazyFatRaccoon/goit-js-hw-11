@@ -2,9 +2,10 @@ import {PhotoApiService} from './js/fetch-photos.js'
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import refs from './js/refs';
+import { refs } from './js/refs.js';
 import { throttle } from 'throttle-debounce';
 import {calcPhotosOnPage, scrollToTheEnd, paintMarkUp} from './js/serviceCalc'
+
 
 refs.searchBth.addEventListener('click', () => onSearch('search bar'))
 refs.loadMore.addEventListener('click', () => onSearch('load more button'))
@@ -39,7 +40,7 @@ function onSearch(searchSource) {
 
     refs.loadMore.classList.remove('invisible')
     refs.loadMore.classList.add('loading'); 
-    perPage = refs.loadMoreBtn.checked ? calcPhotosOnPage() : 40
+    perPage = refs.loadMoreBtn.checked ? calcPhotosOnPage() : 40;
 
     photoApiService.fetchPhotos(perPage)
         .then(data => 
@@ -70,11 +71,12 @@ function onSearch(searchSource) {
         if (photoApiService.downloadedPhotos >= totalAvaliblePhotos) noMorePhorotos()
          })
          .catch(error => {
+            try {
             if (error.response.status === 400) {
                 noMorePhorotos()
-             }
+             } console.log(`Something goes 1 wrong + ${error.response.status}`) } catch(error) {console.log(error)} 
 
-            console.log(`Something goes 1 wrong + ${error.response.status}`)})
+            })
          .finally(() => {
            
             refs.loadMore.classList.remove('loading'); 

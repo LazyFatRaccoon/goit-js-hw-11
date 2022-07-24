@@ -1,5 +1,6 @@
+export {refs}
 
-export default refs = {
+const refs = {
     searchBth: document.querySelector('#searchBtn'),
     searchInput: document.querySelector('#searchInput'),
     gallery: document.querySelector('.gallery'),

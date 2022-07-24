@@ -1,4 +1,4 @@
-import refs from './refs';
+import {refs} from './refs';
 const axios = require('axios').default;
 
 export {PhotoApiService};
@@ -41,6 +41,14 @@ class PhotoApiService {
     get query() {
         return this.query;
     }
+
+    // set downloadedPhotos(newDownloadedPhotos) {
+    //     this.downloadedPhotos = newDownloadedPhotos;
+    // }
+
+    // get downloadedPhotos() {
+    //     return this.downloadedPhotos;
+    // }
     
     
 }
