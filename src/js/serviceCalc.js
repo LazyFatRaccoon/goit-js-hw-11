@@ -1,4 +1,4 @@
-import refs from './refs.js';
+import {refs} from './refs.js';
 import { cardMarkUp } from './card_markUp.js';
 export {calcPhotosOnPage, scrollToTheEnd, paintMarkUp};
 
