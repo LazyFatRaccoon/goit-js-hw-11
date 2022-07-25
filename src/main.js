@@ -22,9 +22,8 @@ const source = {
     LOAD_MORE_BTN: 'load more button',
 }
 
-function onSearch(searchSource) {  
-    console.log(searchSource)
-    console.log(source.SEARCH_BAR)
+function onSearch(searchSource) { 
+    console.log('Loading made by -',searchSource)
     if (searchSource===source.SEARCH_BAR) {
     photoApiService.resetDownloadedPhotosCount()
     refs.error400.classList.add('invisible')
@@ -32,7 +31,7 @@ function onSearch(searchSource) {
     window.scrollTo(0, 0)
     photoApiService.resetPage();
     let query =  refs.searchInput.value;
-    console.log(query)
+    console.log('Request -',query)
     if (!query) return Notify.failure(`enter something`);
     photoApiService.query = query
     
@@ -57,7 +56,7 @@ function onSearch(searchSource) {
 
             if (refs.infiniteScrollBtn.checked) {
                 window.addEventListener("scroll", checkPosition)
-                window.addEventListener("resize", checkPosition)
+                //window.addEventListener("resize", checkPosition)
                 }
             Notify.success(`found ${data.data.total} photos on your request`);}
             else Notify.failure(`Can't find any photos on your request`);
@@ -68,15 +67,16 @@ function onSearch(searchSource) {
         
         
         lightbox.refresh(); 
-        if (photoApiService.downloadedPhotos >= totalAvaliblePhotos) noMorePhorotos()
+        if (photoApiService.downloaded >= totalAvaliblePhotos) noMorePhorotos()
          })
          .catch(error => {
-            try {
+            
             if (error.response.status === 400) {
                 noMorePhorotos()
-             } console.log(`Something goes 1 wrong + ${error.response.status}`) } catch(error) {console.log(error)} 
+             } 
+             console.log(`Error status - ${error.response.status}, In gallery - ${refs.gallery.children.length}`) } 
 
-            })
+         )
          .finally(() => {
            
             refs.loadMore.classList.remove('loading'); 
@@ -89,7 +89,7 @@ function noMorePhorotos() {
     refs.loadMore.classList.add('invisible')  
     refs.loadMore.classList.remove('loading');
     window.removeEventListener("scroll", checkPosition)
-    window.removeEventListener("resize", checkPosition) 
+    //window.removeEventListener("resize", checkPosition) 
     refs.error400.classList.remove('invisible')
 }
 const checkPosition =
@@ -114,14 +114,14 @@ refs.loadMoreBtn.addEventListener('click', onLoadMoreBnt)
 
 function onInfiniteScrollBnt() {
     window.addEventListener("scroll",  checkPosition)
-    window.addEventListener("resize",  checkPosition)
+    //window.addEventListener("resize",  checkPosition)
     refs.loadMore.classList.add('invisible')
 }
 function onLoadMoreBnt() {
     console.log(refs.error400.classList.contains('invisible'))
     if (refs.error400.classList.contains('invisible') && refs.gallery.childElementCount!==0) refs.loadMore.classList.remove('invisible')
     window.removeEventListener("scroll", checkPosition)
-    window.removeEventListener("resize", checkPosition) 
+    //window.removeEventListener("resize", checkPosition) 
 }
 
 

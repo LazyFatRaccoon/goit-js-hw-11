@@ -12,11 +12,11 @@ class PhotoApiService {
         this.searchQuery = '';
         this.page = 1;
     }
-    fetchPhotos(perPage) {
-        console.log(perPage)
+    async fetchPhotos(perPage) {
+        console.log('This time will be loaded', perPage, 'photos. Already loaded -', this.downloadedPhotos)
         const url = `${BASE_URL}?key=${PIXABAY_API}&q=${this.searchQuery}&image_type=photo&per_page=${perPage}&page=${this.page}`;
         this.incrementPage();
-        return axios.get(url);
+        return await axios.get(url);
     }
 
 
@@ -42,13 +42,13 @@ class PhotoApiService {
         return this.query;
     }
 
-    // set downloadedPhotos(newDownloadedPhotos) {
-    //     this.downloadedPhotos = newDownloadedPhotos;
-    // }
+    set downloaded(newDownloadedPhotos) {
+        this.downloadedPhotos = newDownloadedPhotos;
+    }
 
-    // get downloadedPhotos() {
-    //     return this.downloadedPhotos;
-    // }
+    get downloaded() {
+        return this.downloadedPhotos;
+    }
     
     
 }
